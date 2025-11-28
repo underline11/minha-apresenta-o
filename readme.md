@@ -42,6 +42,6 @@ Atuar como desenvolvedor entregando sistemas completos, estáveis e bem projetad
 - Fillipe.dev.system@gmail.com
 
 ---
-Aprender mais todo dia
+
 ## ✨ Frase que me representa
-“ESCREVA AQUI SUA FRASE PROFISSIONAL”
+Aprender mais todo dia
