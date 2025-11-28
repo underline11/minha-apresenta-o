@@ -1,26 +1,47 @@
-# Portfólio Profissional — Desenvolvedor de Sistemas
+# Portfólio Profissional
 
-Este repositório contém meu portfólio profissional, hospedado via GitHub Pages.  
-Aqui apresento minhas habilidades, projetos e propósito como desenvolvedor.
+![Minha Foto](./assets/foto-perfil.png)
 
-## 🧑‍💻 Sobre mim
-Sou desenvolvedor de sistemas com experiência em:
-- HTML, CSS e JavaScript  
-- Python  
-- SQL  
-- Java  
+# SEU NOME COMPLETO
+Fillipe Royer Dornelles
 
-Meu destaque é a plataforma Aprenda+ — um sistema completo com 9 cursos estruturados e interface moderna.
+## 🧑‍💼 Mini-bio
+Profissional focado em criar soluções limpas, funcionais e eficientes. Experiência em desenvolvimento front-end e back-end, construindo aplicações completas, responsivas e bem estruturadas. Apaixonado por aprender, evoluir e entregar projetos que realmente fazem diferença.
 
-## 🚀 Conteúdo do Portfólio
-- Minha trajetória profissional  
-- Minhas principais habilidades técnicas  
-- Meus projetos  
-- Meu diferencial na área  
-- Meu propósito como profissional  
+---
 
-## 🌐 Acesse a plataforma Aprenda+
+## 🧠 Habilidades
+- **HTML**  
+- **CSS**  
+- **JavaScript**  
+- **Python**  
+- **SQL**  
+- **Java**
+
+---
+
+## 🚀 Projetos em Destaque
+
+### **Aprenda+ — Plataforma Educacional**
+Sistema completo com 9 cursos diferentes, interface moderna e organização modular.  
+https://codepen.io/Fillipe-the-builder/pen/wBMZjPy
+
+### **Outros projetos**
+Diversos projetos utilizando HTML, CSS, JS, Python, SQL e Java.  
 (https://codepen.io/Fillipe-the-builder/pen/wBMZjPy)
 
-## 📂 Como rodar localmente
-Clone o repositório:
+---
+
+## 🎯 Objetivo Profissional
+Atuar como desenvolvedor entregando sistemas completos, estáveis e bem projetados, com foco em crescimento contínuo e construção de soluções de impacto.
+
+---
+
+## 📬 Contato
+-(https://www.linkedin.com/in/fillipe-royer/)  
+- Fillipe.dev.system@gmail.com
+
+---
+Aprender mais todo dia
+## ✨ Frase que me representa
+“ESCREVA AQUI SUA FRASE PROFISSIONAL”
