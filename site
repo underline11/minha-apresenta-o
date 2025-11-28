@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio Profissional</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        color: #222;
+        scroll-behavior: smooth;
+    }
+
+    header {
+        background: #222;
+        color: #fff;
+        padding: 40px;
+        text-align: center;
+    }
+
+    nav {
+        background: #333;
+        padding: 12px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 12px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    section {
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .foto {
+        width: 200px;
+        border-radius: 10px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    .projeto {
+        background: #fff;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 8px;
+        box-shadow: 0 0 5px #0003;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Portfólio Profissional</h1>
+  <h2>Fillipe Royer Dornelles</h2>
+    <p>Desenvolvedor de Sistemas</p>
+</header>
+
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#diferencial">Diferencial</a>
+    <a href="#proposito">Propósito</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<section id="inicio">
+    <h2>Bem-vindo</h2>
+    <p>Este é meu portfólio profissional. Navegue pelas seções para conhecer meu trabalho.</p>
+</section>
+
+<section id="sobre">
+    <h2>Sobre mim</h2>
+    <p>Sou um desenvolvedor de sistemas com experiência em várias linguagens e foco em criar aplicações completas, eficientes e bem estruturadas.</p>
+    <img src="assets/foto-perfil.png" class="foto" alt="Foto profissional">
+</section>
+
+<section id="habilidades">
+    <h2>Habilidades</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Java</li>
+    </ul>
+</section>
+
+<section id="projetos">
+    <h2>Projetos</h2>
+
+    <div class="projeto">
+        <h3>Aprenda+</h3>
+        <p>Plataforma de ensino com 9 cursos diferentes.</p>
+        <a href="#">https://codepen.io/Fillipe-the-builder/pen/wBMZjPy</a>
+    </div>
+
+    <div class="projeto">
+        <h3>Projetos Diversos</h3>
+        <p>Aplicações usando HTML, CSS, JavaScript, Python, SQL e Java.</p>
+        <a href="#">Repositórios</a>
+    </div>
+</section>
+
+<section id="diferencial">
+    <h2>Meu diferencial</h2>
+    <p>Entrego sistemas completos, organizados, responsivos e com foco total no usuário.</p>
+</section>
+
+<section id="proposito">
+    <h2>Propósito profissional</h2>
+    <p>Quero evoluir constantemente e criar soluções que realmente fazem diferença.</p>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p><strong>E-mail:</strong> Fillipe.dev.system@gmail.com</p>
+    <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/fillipe-royer/</p>
+</section>
+
+<script>
+    console.log("Portfólio carregado.");
+</script>
+
+</body>
+</html>
