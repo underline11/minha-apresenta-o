@@ -1,148 +1,330 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfólio Profissional</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfólio — Seu Nome</title>
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-        color: #222;
-        scroll-behavior: smooth;
-    }
+  :root{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#2563eb;
+    --radius:12px;
+    --glass: rgba(255,255,255,0.7);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter, system-ui, Arial, sans-serif;
+    background:linear-gradient(180deg,#f3f6ff 0%, var(--bg) 100%);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+  }
 
-    header {
-        background: #222;
-        color: #fff;
-        padding: 40px;
-        text-align: center;
-    }
+  /* Layout */
+  .nav{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.6);
+    border-bottom:1px solid #e6e9ef;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 20px;
+  }
+  .nav .brand{font-weight:700; letter-spacing:.2px}
+  .nav .links{display:flex; gap:14px}
+  .nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px}
+  .nav a.active, .nav a:hover{color:var(--accent); background:rgba(37,99,235,0.06)}
 
-    nav {
-        background: #333;
-        padding: 12px;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-    }
+  .container{max-width:1100px; margin:30px auto; padding:0 20px}
 
-    nav a {
-        color: white;
-        margin: 0 12px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+  header.hero{
+    display:flex; gap:30px; align-items:center; padding:28px; border-radius:var(--radius);
+    background:linear-gradient(90deg, rgba(255,255,255,0.85), rgba(250,250,255,0.85));
+    box-shadow:0 6px 30px rgba(16,24,40,0.06);
+  }
+  .hero .photo{
+    width:160px; height:160px; border-radius:14px; object-fit:cover; flex-shrink:0;
+    background:linear-gradient(135deg,#e9eefb,#fff);
+    display:block;
+  }
+  .hero .meta{flex:1}
+  .hero h1{margin:0; font-size:28px}
+  .hero p{margin:8px 0 0; color:var(--muted)}
+  .slogan{margin-top:14px; font-weight:600; color:var(--accent)}
 
-    nav a:hover {
-        text-decoration: underline;
-    }
+  /* Sections */
+  section{margin-top:28px}
+  h2{margin:0 0 12px 0; font-size:20px}
+  .card{background:var(--card); padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(16,24,40,0.04)}
 
-    section {
-        padding: 40px;
-        max-width: 900px;
-        margin: auto;
-    }
+  /* Skills */
+  .skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px}
+  .skill{
+    padding:12px; border-radius:10px; background:linear-gradient(180deg,#fff,#fbfdff);
+  }
+  .skill .label{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; color:var(--muted); font-weight:600}
+  .progress{height:12px;background:#eef2ff;border-radius:8px; overflow:hidden}
+  .progress > i{display:block;height:100%; background:linear-gradient(90deg,var(--accent),#4f46e5); width:0%; transition:width 900ms cubic-bezier(.2,.9,.3,1)}
 
-    .foto {
-        width: 200px;
-        border-radius: 10px;
-        margin-top: 20px;
-        display: block;
-    }
+  /* Projects */
+  .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+  .project{display:flex; flex-direction:column; gap:12px}
+  .project img{width:100%; height:150px; object-fit:cover; border-radius:8px}
+  .project .tech{color:var(--muted); font-size:13px}
 
-    .projeto {
-        background: #fff;
-        padding: 20px;
-        margin: 15px 0;
-        border-radius: 8px;
-        box-shadow: 0 0 5px #0003;
-    }
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:1fr 320px; gap:18px}
+  .contact-grid form{display:flex; flex-direction:column; gap:10px}
+  input, textarea, button{
+    padding:10px 12px; border-radius:8px; border:1px solid #e6e9ef; font-size:14px;
+  }
+  textarea{min-height:120px; resize:vertical}
+  button{
+    background:var(--accent); color:#fff; border:none; cursor:pointer; font-weight:700;
+  }
 
-    h2 {
-        margin-top: 0;
-    }
+  /* footer */
+  footer{margin:40px 0 80px; text-align:center; color:var(--muted); font-size:13px}
+
+  /* responsiveness */
+  @media (max-width:800px){
+    .hero{flex-direction:column; align-items:center; text-align:center}
+    .contact-grid{grid-template-columns:1fr}
+  }
+
+  /* small helpers */
+  .muted{color:var(--muted)}
+  .row{display:flex; gap:12px; align-items:center}
+  a.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5ff;color:var(--accent);text-decoration:none;font-weight:700;font-size:13px}
 </style>
 </head>
 <body>
-
-<header>
-    <h1>Portfólio Profissional</h1>
-  <h2>Fillipe Royer Dornelles</h2>
-    <p>Desenvolvedor de Sistemas</p>
-</header>
-
-<nav>
-    <a href="#inicio">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#diferencial">Diferencial</a>
-    <a href="#proposito">Propósito</a>
-    <a href="#contato">Contato</a>
-</nav>
-
-<section id="inicio">
-    <h2>Bem-vindo</h2>
-    <p>Este é meu portfólio profissional. Navegue pelas seções para conhecer meu trabalho.</p>
-</section>
-
-<section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Sou um desenvolvedor de sistemas com experiência em várias linguagens e foco em criar aplicações completas, eficientes e bem estruturadas.</p>
-    <img src="assets/foto-perfil.png" class="foto" alt="Foto profissional">
-</section>
-
-<section id="habilidades">
-    <h2>Habilidades</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Java</li>
-    </ul>
-</section>
-
-<section id="projetos">
-    <h2>Projetos</h2>
-
-    <div class="projeto">
-        <h3>Aprenda+</h3>
-        <p>Plataforma de ensino com 9 cursos diferentes.</p>
-        <a href="#">https://codepen.io/Fillipe-the-builder/pen/wBMZjPy</a>
+  <nav class="nav">
+    <div class="brand">Fillipe Royer Dornelles</div>
+    <div class="links" id="nav-links">
+      <a href="#home" data-target="home" class="active">Home</a>
+      <a href="#sobre" data-target="sobre">Sobre</a>
+      <a href="#habilidades" data-target="habilidades">Habilidades</a>
+      <a href="#projetos" data-target="projetos">Projetos</a>
+      <a href="#contato" data-target="contato">Contato</a>
     </div>
+  </nav>
 
-    <div class="projeto">
-        <h3>Projetos Diversos</h3>
-        <p>Aplicações usando HTML, CSS, JavaScript, Python, SQL e Java.</p>
-        <a href="#">Repositórios</a>
-    </div>
-</section>
+  <main class="container">
 
-<section id="diferencial">
-    <h2>Meu diferencial</h2>
-    <p>Entrego sistemas completos, organizados, responsivos e com foco total no usuário.</p>
-</section>
+    <!-- HOME -->
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <!-- ADICIONE: substitua src pelo caminho da sua foto -->
+      <img src="assets/foto-perfil.png" alt="Foto profissional" class="photo" onerror="this.style.display='none'">
+      <div class="meta">
+        <h1 id="home-title">SEU NOME COMPLETO</h1>
+        <p class="muted">Desenvolvedor de Sistemas • HTML • CSS • JavaScript • Python • SQL • Java</p>
+        <div class="slogan">“Transformo ideias em código.”</div>
+        <div style="margin-top:12px" class="row">
+          <a class="badge" href="#projetos">Meus projetos</a>
+          <a class="badge" href="#contato" style="background:#eef2ff;color:#0b5fff">Contato</a>
+        </div>
+      </div>
+    </section>
 
-<section id="proposito">
-    <h2>Propósito profissional</h2>
-    <p>Quero evoluir constantemente e criar soluções que realmente fazem diferença.</p>
-</section>
+    <!-- SOBRE -->
+    <section id="sobre" aria-labelledby="sobre-title">
+      <h2 id="sobre-title">Sobre Mim</h2>
+      <div class="card">
+        <p><strong>Trajetória:</strong> <!-- ADICIONE: escreva sua trajetória profissional em 2–4 linhas --> Nunca pensei em programação antes, até que fiz um curso de desenvolvimento web e me apaixonei e desde então vou seguir essa carreira.</p>
+        <p><strong>Por que escolhi tecnologia:</strong>É uma área com muitas oportunidades e extremamente vital para o mundo moderno <!-- ADICIONE --> </p>
+        <p><strong>Minhas metas:</strong> Crescer como desenvolvedor full-stack e entregar produtos que impactem usuários.</p>
+        <p><strong>Como resolvo problemas:</strong> Analiso requisitos, divido o problema em etapas, testo hipóteses e entrego soluções incrementais.</p>
+      </div>
+    </section>
 
-<section id="contato">
-    <h2>Contato</h2>
-    <p><strong>E-mail:</strong> Fillipe.dev.system@gmail.com</p>
-    <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/fillipe-royer/</p>
-</section>
+    <!-- HABILIDADES -->
+    <section id="habilidades" aria-labelledby="habilidades-title">
+      <h2 id="habilidades-title">Habilidades</h2>
+      <div class="card">
+        <div style="margin-bottom:12px">
+          <strong class="muted">Tecnologias principais</strong>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="label"><span>HTML</span><span>95%</span></div>
+            <div class="progress" data-percent="95"><i></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>CSS</span><span>90%</span></div>
+            <div class="progress" data-percent="90"><i></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>JavaScript</span><span>85%</span></div>
+            <div class="progress" data-percent="85"><i></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Python</span><span>80%</span></div>
+            <div class="progress" data-percent="80"><i></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Java</span><span>70%</span></div>
+            <div class="progress" data-percent="70"><i></i></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>SQL</span><span>75%</span></div>
+            <div class="progress" data-percent="75"><i></i></div>
+          </div>
+        </div>
+
+        <hr style="margin:18px 0">
+
+        <div>
+          <strong class="muted">Frameworks & Tools</strong>
+          <p class="muted" style="margin-top:8px">React • Node.js • Django/Flask • Bootstrap • VSCode • Git • Figma • Postman</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" aria-labelledby="projetos-title">
+      <h2 id="projetos-title">Projetos em Destaque</h2>
+      <div class="projects">
+        <div class="project card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <h3 style="margin:0">Aprenda+</h3>
+              <div class="tech">HTML • CSS • JavaScript • Python</div>
+            </div>
+            <div class="muted" style="font-size:13px">2025</div>
+          </div>
+          <!-- ADICIONE: substitua src pela imagem/print do projeto -->
+          <img src="assets/print-aprenda.png" alt="Print do Aprenda+" onerror="this.style.display='none'">
+          <p class="muted">Plataforma educacional com 9 cursos, módulos e painéis administrativos.</p>
+          <div style="display:flex; gap:10px">
+            <a href="LINK-REPO-APRENDA" target="_blank" class="badge">Repositório</a>
+            <a href="#" class="badge" style="background:#fff;border:1px solid #e6e9ef;color:var(--muted)">Demo</a>
+          </div>
+        </div>
+
+        <!-- Exemplo de outro projeto -->
+        <div class="project card">
+          <h3 style="margin:0">Projeto X</h3>
+          <div class="tech">JavaScript • API • SQL</div>
+          <img src="assets/print-projeto-x.png" alt="Print Projeto X" onerror="this.style.display='none'">
+          <p class="muted">Descrição curta e objetiva do projeto.</p>
+          <div style="display:flex; gap:10px">
+            <a href="LINK-REPO-X" target="_blank" class="badge">Repositório</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" aria-labelledby="contato-title">
+      <h2 id="contato-title">Contato</h2>
+      <div class="card contact-grid">
+        <div>
+          <p><strong>LinkedIn:</strong> <!-- ADICIONE: link --> <span class="muted">https://www.linkedin.com/in/fillipe-royer/</span></p>
+          <p><strong>E-mail:</strong> <!-- ADICIONE: email --> <span class="muted">Fillipe.dev.system@gmail.com</span></p>
+          <p><strong>GitHub:</strong> <!-- ADICIONE: usuário --> <span class="muted">https://github.com/underline11</span></p>
+
+          <p style="margin-top:12px" class="muted">Você também pode enviar uma mensagem rápida pelo formulário ao lado.</p>
+        </div>
+
+        <form id="contactForm" onsubmit="return false;">
+          <input id="name" type="text" placeholder="Seu nome" required>
+          <input id="email" type="email" placeholder="Seu e-mail" required>
+          <textarea id="message" placeholder="Mensagem" required></textarea>
+          <button id="sendBtn" type="submit">Enviar mensagem</button>
+          <div id="formMsg" style="margin-top:8px;color:green;display:none">Mensagem simulada enviada (sem backend).</div>
+        </form>
+      </div>
+    </section>
+
+    <footer>© 2025 — Seu Nome • Desenvolvedor de Sistemas</footer>
+  </main>
 
 <script>
-    console.log("Portfólio carregado.");
-</script>
+  // Navegação - marca link ativo ao rolar
+  const links = document.querySelectorAll('.nav .links a');
+  const sections = document.querySelectorAll('main section[id]');
+  function onScroll(){
+    const y = window.scrollY + 120;
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const h = sec.offsetHeight;
+      const id = sec.id;
+      const link = document.querySelector('.nav .links a[data-target="'+id+'"]');
+      if(y >= top && y < top + h){
+        links.forEach(l=>l.classList.remove('active'));
+        if(link) link.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
 
+  // Smooth scroll for nav links
+  links.forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const id = a.getAttribute('data-target');
+      const el = document.getElementById(id);
+      if(el) window.scrollTo({top: el.offsetTop - 80, behavior:'smooth'});
+    });
+  });
+
+  // Animate skill bars when in view
+  const progressEls = document.querySelectorAll('.progress');
+  function animateSkills(){
+    progressEls.forEach(p=>{
+      if(p.dataset.animated) return;
+      const rect = p.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 60){
+        const percent = p.getAttribute('data-percent') || 0;
+        p.querySelector('i').style.width = percent + '%';
+        p.dataset.animated = '1';
+      }
+    });
+  }
+  window.addEventListener('scroll', animateSkills);
+  window.addEventListener('load', animateSkills);
+  animateSkills();
+
+  // Simple contact form (client-side only)
+  const contactForm = document.getElementById('contactForm');
+  const sendBtn = document.getElementById('sendBtn');
+  contactForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const msg = document.getElementById('message').value.trim();
+    if(!name || !email || !msg){
+      alert('Preencha todos os campos.');
+      return;
+    }
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Enviando...';
+    // Simula envio
+    setTimeout(()=>{
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Enviar mensagem';
+      document.getElementById('formMsg').style.display = 'block';
+      contactForm.reset();
+      setTimeout(()=> document.getElementById('formMsg').style.display = 'none', 3500);
+    }, 900);
+  });
+
+  // Accessibility: enable Enter to send on textarea (Ctrl+Enter)
+  document.getElementById('message').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter' && e.ctrlKey){
+      document.getElementById('sendBtn').click();
+    }
+  });
+</script>
 </body>
 </html>
+
